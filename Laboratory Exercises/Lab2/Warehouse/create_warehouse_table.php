@@ -13,7 +13,10 @@ CREATE TABLE IF NOT EXISTS products (
 );
 SQL;
 
-if ($db->exec($createTableQuery)) {
+$stmt = $db->prepare($createTableQuery);
+$result = $stmt->execute();
+
+if ($result) {
     echo "Table created successfully.";
 } else {
     echo "Error creating table: " . $db->lastErrorMsg();

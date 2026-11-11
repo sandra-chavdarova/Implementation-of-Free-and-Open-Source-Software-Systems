@@ -4,7 +4,8 @@ include 'db_connection.php';
 $db = connectDatabase();
 
 $query = "SELECT * FROM products";
-$result = $db->query($query);
+$stmt = $db->prepare($query);
+$result = $stmt->execute();
 
 if (!$result) {
     die("Error fetching products: " . $db->lastErrorMsg());
@@ -49,6 +50,7 @@ if (!$result) {
         <th>Amount</th>
         <th>Price</th>
         <th>Supplier</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>

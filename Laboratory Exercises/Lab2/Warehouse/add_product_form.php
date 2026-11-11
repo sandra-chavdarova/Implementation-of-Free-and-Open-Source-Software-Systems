@@ -23,7 +23,7 @@
     <br>
     <br>
     <label for="age">Price:</label>
-    <input type="number" name="price" id="price" required>
+    <input type="number" name="price" id="price" step="any" min="0.01" required>
     <br>
     <br>
     <label for="age">Supplier:</label>

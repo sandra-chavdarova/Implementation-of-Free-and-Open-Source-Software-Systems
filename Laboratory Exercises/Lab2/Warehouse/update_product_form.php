@@ -40,14 +40,14 @@ if (isset($_GET['id'])) {
                 Food
             </option>
             <option value="Clothing" <?php echo $product['category'] == 'Clothing' ? 'selected':'';?>>
-                Electronics
+                Clothing
             </option>
         </select>
         <br><br>
         <label for="amount">Amount:</label>
         <input type="number" name="amount" value="<?php echo htmlspecialchars($product['amount']); ?>" required><br><br>
         <label for="price">Price:</label>
-        <input type="number" name="price" value="<?php echo htmlspecialchars($product['price']); ?>" required><br><br>
+        <input type="number" name="price" step="any" min="0.01" value="<?php echo htmlspecialchars($product['price']); ?>" required><br><br>
         <label for="supplier">Supplier:</label>
         <input type="text" name="supplier" value="<?php echo htmlspecialchars($product['supplier']); ?>" required><br><br>
         <button type="submit">Update Product</button>

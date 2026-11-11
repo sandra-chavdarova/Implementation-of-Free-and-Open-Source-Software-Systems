@@ -11,8 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $supplier = $_POST['supplier'] ?? '';
 
     // Validate required fields
-    if (empty($name) || empty($category) || $amount < 0 || $price <= 0 || empty($supplier)) {
+    if (empty(trim($name)) || empty(trim($category)) || $amount < 0 || $price <= 0 || empty(trim($supplier))) {
         echo "Please fill in all required fields correctly.";
+        exit;
+    }
+
+    if ($category != "Electronics" && $category != "Food" && $category != "Clothing") {
+        echo "Please choose an available category.";
         exit;
     }
 

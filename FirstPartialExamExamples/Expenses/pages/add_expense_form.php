@@ -1,3 +1,13 @@
+<?php
+session_start();
+include "../helpers/jwt_helper.php";
+
+if (!isset($_SESSION['jwt']) || !decodeJWT($_SESSION['jwt'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

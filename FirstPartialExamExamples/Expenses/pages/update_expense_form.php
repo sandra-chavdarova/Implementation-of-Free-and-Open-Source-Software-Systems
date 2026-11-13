@@ -1,6 +1,14 @@
 <?php
 include '../helpers/db_connection.php';
 
+session_start();
+include "../helpers/jwt_helper.php";
+
+if (!isset($_SESSION['jwt']) || !decodeJWT($_SESSION['jwt'])) {
+    header("Location: login.php");
+    exit;
+}
+
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $db = connectDatabase();
@@ -41,8 +49,10 @@ if (isset($_GET['id'])) {
 
         <label for="type">Type:</label>
         <select name="type" id="type" required>
-            <option value="Cash" <?php echo htmlspecialchars($expense['type']) == 'Cash' ? 'selected' : ''; ?>>Cash</option>
-            <option value="Card" <?php echo htmlspecialchars($expense['type']) == 'Card' ? 'selected' : ''; ?>>Card</option>
+            <option value="Cash" <?php echo htmlspecialchars($expense['type']) == 'Cash' ? 'selected' : ''; ?>>Cash
+            </option>
+            <option value="Card" <?php echo htmlspecialchars($expense['type']) == 'Card' ? 'selected' : ''; ?>>Card
+            </option>
         </select>
         <br><br>
 

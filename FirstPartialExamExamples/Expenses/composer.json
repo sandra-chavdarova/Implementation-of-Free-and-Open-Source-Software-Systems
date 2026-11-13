@@ -1,7 +1,6 @@
 {
   "require": {
-    "vendor/vlucas/phpdotenv": "^5.6",
-    "vendor/firebase/php-jwt": "^6.10",
-    "ext-pdo": "*"
+    "vlucas/phpdotenv": "^5.6",
+    "firebase/php-jwt": "^6.10"
   }
 }

@@ -5,7 +5,7 @@ use Dotenv\Dotenv;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-$dotenv = Dotenv::createImmutable(__DIR__ . "/FirstPartialExamExample/");
+$dotenv = Dotenv::createImmutable(__DIR__."/../");
 
 $dotenv->load();
 
